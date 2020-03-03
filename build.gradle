@@ -90,7 +90,7 @@ task replaceVersion {
 build.dependsOn replaceVersion
 
 task updateTranslations(type: Exec) {
-    if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+    if (OperatingSystem.isWindows()) {
         commandLine 'cmd', '/c', 'tx.exe', 'pull', '-a'
     } else {
         commandLine 'tx', 'pull', '-a'
